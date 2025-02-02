@@ -20,17 +20,11 @@ export class AuthService {
   }
 
   async login(user: any) {
-    // Debug için
-    console.log('Login user:', user);
-
     const payload = {
       username: user.username,
       sub: user.id,
       role: user.role.name,
     };
-
-    // Debug için
-    console.log('JWT payload:', payload);
 
     return {
       access_token: this.jwtService.sign(payload),

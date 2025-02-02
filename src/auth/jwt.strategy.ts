@@ -14,18 +14,11 @@ export class JwtStrategy extends PassportStrategy(Strategy) {
   }
 
   async validate(payload: any) {
-    // Debug için
-    console.log('JWT payload in validate:', payload);
-
     const user = await this.userService.findById(payload.sub);
     if (!user) {
       throw new UnauthorizedException();
     }
 
-    // Debug için
-    console.log('Found user:', user);
-
-    // Role bilgisini de döndürelim
     return {
       id: user.id,
       username: user.username,

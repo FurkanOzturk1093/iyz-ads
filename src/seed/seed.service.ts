@@ -50,7 +50,5 @@ export class SeedService implements OnApplicationBootstrap {
         role: userRole,
       },
     ]);
-
-    console.log('Seed data oluşturuldu!');
   }
 }
